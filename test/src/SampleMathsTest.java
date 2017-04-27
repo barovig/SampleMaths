@@ -51,6 +51,17 @@ public class SampleMathsTest {
         double result = instance.add(a, b, c);
         assertEquals(expResult, result, 0.0);
     }
+    @Test
+    public void testAdd_passIntegers_returnsThree() {
+        System.out.println("add");
+        Number a = 2;
+        Number b = 1;
+        Class c = Double.class;
+        SampleMaths instance = new SampleMaths();
+        double expResult = 3.0;
+        double result = instance.add(a, b, c);
+        assertEquals(expResult, result, 0.0);
+    }
     
     @Test
     public void testAdd_notNumericClassParameter_returnsNaN() {
@@ -76,6 +87,18 @@ public class SampleMathsTest {
         double result = instance.multiply(a, b, c);
         assertEquals(expResult, result, 0.0);
     }
+    
+//    @Test
+//    public void testMultiply_passIntegers_returnsTen() {
+//        System.out.println("add");
+//        Number a = 5;
+//        Number b = 2;
+//        Class c = Double.class;
+//        SampleMaths instance = new SampleMaths();
+//        double expResult = 10.0;
+//        double result = instance.multiply(a, b, c);
+//        assertEquals(expResult, result, 0.0);
+//    }
     
     @Test
     public void testMultiply_notNumericClassParameter_returnsNaN() {
