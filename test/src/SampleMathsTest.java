@@ -52,7 +52,7 @@ public class SampleMathsTest {
         assertEquals(expResult, result, 0.0);
     }
     
-        @Test
+    @Test
     public void testAdd_notNumericClassParameter_returnsNaN() {
         System.out.println("add");
         Number a = 2.5;
@@ -64,16 +64,28 @@ public class SampleMathsTest {
         assertEquals(expResult, result, 0.0);
     }
     
+    
     @Test
-    public void testAdd_sampleFailingTest() {
+    public void testMultiply_passDoubles_returnsSix() {
         System.out.println("add");
-        Number a = 2.5;
+        Number a = 4.0;
         Number b = 1.5;
         Class c = Double.class;
         SampleMaths instance = new SampleMaths();
-        double expResult = 100.0;
-        double result = instance.add(a, b, c);
+        double expResult = 6.0;
+        double result = instance.multiply(a, b, c);
         assertEquals(expResult, result, 0.0);
     }
     
+    @Test
+    public void testMultiply_notNumericClassParameter_returnsNaN() {
+        System.out.println("add");
+        Number a = 2.5;
+        Number b = 1.5;
+        Class c = String.class;
+        SampleMaths instance = new SampleMaths();
+        double expResult = Double.NaN;
+        double result = instance.multiply(a, b, c);
+        assertEquals(expResult, result, 0.0);
+    }
 }
