@@ -78,7 +78,7 @@ public class SampleMathsTest {
     
     @Test
     public void testMultiply_passDoubles_returnsSix() {
-        System.out.println("add");
+        System.out.println("multiply");
         Number a = 4.0;
         Number b = 1.5;
         Class c = Double.class;
@@ -102,7 +102,7 @@ public class SampleMathsTest {
     
     @Test
     public void testMultiply_notNumericClassParameter_returnsNaN() {
-        System.out.println("add");
+        System.out.println("multiply");
         Number a = 2.5;
         Number b = 1.5;
         Class c = String.class;
