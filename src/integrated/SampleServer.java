@@ -30,7 +30,7 @@ public class SampleServer {
             int i = is.readInt();
             System.out.println("Received int: "+i);
             os.writeInt(i);
-            double d = is.readDouble();
+            double d = is.readInt();
             System.out.println("Received double: "+d);
             os.writeDouble(d);
             
