@@ -86,10 +86,7 @@
 
 <taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
   
-  <!-- run this target to generate the coverage reports -->
-  <target name="coverage-report">
 <cobertura-report format="html" destdir="${coveragereport.dir}" srcdir="${src.dir}" />
-  </target>
 
 
 
