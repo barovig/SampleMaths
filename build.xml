@@ -72,4 +72,21 @@
     nbproject/build-impl.xml file. 
 
     -->
+
+
+
+<property name="cobertura.dir" value=“/home/ubuntu/cobertura-2.1.1” />
+
+<path id="cobertura.classpath">
+    <fileset dir="${cobertura.dir}">
+        <include name="cobertura.jar" />
+        <include name="lib/**/*.jar" />
+    </fileset>
+</path>
+
+<taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
+
+
+
+
 </project>
