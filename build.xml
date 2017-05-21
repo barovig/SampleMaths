@@ -86,7 +86,38 @@
 
 <taskdef classpathref="cobertura.classpath" resource="tasks.properties" />
 
+<target name="instrument" depends="compile">
+    <cobertura-instrument todir="${cob.instrumented.dir}">
+      <fileset dir="${dest.dir.classes}">
+        <include name="**/*.class"/>
+      </fileset>
+    </cobertura-instrument>
+  </target>
 
+  <target name="cover-test" depends="instrument">
+    <junit dir="./" failureproperty="test.failure" printsummary="yes" 
+      fork="true" haltonerror="true">
+        <classpath location="${cobertura.jar.file}"/>
+        <classpath location="${cob.instrumented.dir}"/>
+      <classpath>
+              <path refid="build.class.path"/>
+        </classpath>
+      <batchtest fork="yes" todir="${reports.dir}">
+          <fileset dir="${cob.instrumented.dir}">
+            <include name="**/Test*"/>
+            <include name="**/*Tests*"/>
+            <include name="org/jaxen/javabean/*Test*" />
+          <exclude name="**/TestingUtils*"/>
+            <exclude name="**/AllTests*"/>
+          </fileset>
+          </batchtest>
+    </junit>
+  </target>
+  
+  <!-- run this target to generate the coverage reports -->
+  <target name="coverage-report" depends="cover-test">
+    <cobertura-report srcdir="${src.dir}" destdir="${cobertura.dir}"/>
+  </target>
 
 
 </project>
